@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        .login-form {
+            width: 300px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .login-form h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #000000c3;
+        }
+        .login-form input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-form button {
+            width: 50%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #555;
+        }
+        .login-form a {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #555;
+            text-decoration: none;
+        }
+        .login-form a:hover {
+            text-decoration: underline;
+        }
+        .login-form p {
+            margin-top: 10px;
+            font-size: 0.8em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Login Form</h2>
+        <form action="login1.php" method="POST">
+            <input type="text" placeholder="Username" name="username" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <a href="#">Forgot Your Password?</a>
+        <p>By signing up, you agree to our Terms of Service and Privacy Policy.</p>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const username = document.querySelector('input[placeholder="Username"]');
+            const password = document.querySelector('input[placeholder="Password"]');
+            let errors = [];
+
+          
+            if (!username.value.trim()) {
+                errors.push("Username cannot be empty.");
+            }
+
+            
+            if (password.value.length < 8) {
+                errors.push("Password must be at least 8 characters long.");
+            }
+            
+            if (errors.length > 0) {
+                event.preventDefault();
+                alert(errors.join('\n'));
+            }
+        });
+    </script>
+</body>
+</html>
